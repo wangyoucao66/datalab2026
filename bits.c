@@ -51,7 +51,7 @@ int bitXor(int x, int y) {
  */
 int samesign(int x, int y) {
     if(!x&&!y) return 1;
-    if(!x||!y) return 0;
+    if(!(x&&y)) return 0;
     return !((x>>31)^(y>>31));
 }
 
@@ -65,7 +65,24 @@ int samesign(int x, int y) {
  *   Difficulty: 4
  */
 int logtwo(int v) {
-    return 2;
+    int wei=0;
+    int shift;
+    shift=(v>=(1<<16))<<4;
+    wei|=shift;
+    v>>=shift;
+    shift=(v>=(1<<8))<<3;
+    wei|=shift;
+    v>>=shift;
+    shift=(v>=(1<<4))<<2;
+    wei|=shift;
+    v>>=shift;
+    shift=(v>=(1<<2))<<1;
+    wei|=shift;
+    v>>=shift;
+    shift=(v>=(1<<1))<<0;
+    wei|=shift;
+    v>>=shift;
+    return wei;
 }
 
 /*
@@ -78,7 +95,12 @@ int logtwo(int v) {
  *    Difficulty: 2
  */
 int byteSwap(int x, int n, int m) {
-    return 2;
+    int ns=n<<3;
+    int ms=m<<3;
+    int nb=(x>>ns) & 0xFF;
+    int mb=(x>>ms) & 0xFF;
+    int mask=(0xFF<<ns)|(0xFF<<ms);
+    return (x&~mask)|(nb<<ms)|(mb<<ns);
 }
 
 /*
