@@ -4,24 +4,9 @@
 
 学号：2025201729
 
-| 总分 | bitXor | logtwo | byteSwap | reverse | ... |
-| --------- | ------------- | ------------- | ------------- | ----------------- |-----------|
-| 0.00         | 0.00             | 0.00             | 0.00             | 0.00 |···  |
-
-
 test 截图：
 ![alt text](image.png)
 
-wyc123321@LAPTOP-NV1H4HJI:~/ics_labs/datalab2026$ make
-./btest -f float64_f2i
-python3 test.py
-make: Nothing to be done for 'all'.
- 3      3       0       float64_f2i
-rm -f *.o btest fshow ishow *~ yacctab.py lextab.py result.txt .autograder_result
-gcc -O0 -Wall -std=gnu99 -lm -o btest bits.c btest.c decl.c tests.c
-gcc -O0 -Wall -std=gnu99 -o fshow fshow.c
-gcc -O0 -Wall -std=gnu99 -o ishow ishow.c
-Make success.
 bitAnd          1/1:     PASS
 bitXor          1/1:     PASS
 samesign        2/2:     PASS
