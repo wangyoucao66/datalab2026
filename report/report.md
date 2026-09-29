@@ -24,8 +24,6 @@ Total points: 37
 ## 解题报告
 
 ### 亮点
-
-### 亮点
 1. float_i2f
 2. leftBitCount
 
