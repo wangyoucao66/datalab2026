@@ -222,18 +222,18 @@ unsigned float_i2f(int x) {
  *   Difficulty: 4
  */
 unsigned floatScale2(unsigned uf) {
-    unsigned S = uf & 0x80000000;
-    unsigned E  = (uf >> 23) & 0xFF;
-    if (E == 0xFF) {
+    unsigned S=uf & 0x80000000;
+    unsigned E=(uf>>23) & 0xFF;
+    if(E==0xFF){
         return uf;
     }
-    if (E == 0) {
-        return S | ((uf & 0x7FFFFFFF) << 1);
+    if(E==0){
+        return S|((uf & 0x7FFFFFFF)<<1);
     }
-    if (E == 0xFE) {
-        return S | 0x7F800000;
+    if(E==0xFE){
+        return S|0x7F800000;
     }
-    return uf + (1 << 23);
+    return uf+(1<<23);
 }
 
 /*
@@ -288,14 +288,14 @@ int float64_f2i(unsigned uf1, unsigned uf2) {
  *   Difficulty: 4
  */
 unsigned floatPower2(int x) {
-    if (x < -149) {
+    if(x<-149){
         return 0;
     }
-    if (x < -126) {
-        return 1 << (x + 149);
+    if(x<-126){
+        return 1<<(x+149);
     }
-    if (x <= 127) {
-        return (x + 127) << 23;
+    if(x<=127){
+        return(x+127)<<23;
     }
     return 0x7F800000;
 }
